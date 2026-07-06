@@ -1,169 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colorful DevOps Roadmap</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DevOps Tech Roadmap</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
-body{
-background:linear-gradient(135deg,#6dd5fa,#ffffff,#fbc2eb,#a6ffcb);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-color:#223;
-}
-@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
-header{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(90deg,#667eea,#764ba2,#ff758c);
-color:#fff;
-}
-h1{font-size:3rem}
-header p{margin:15px auto;max-width:700px;font-size:1.1rem}
-button{
-padding:12px 24px;
-border:none;
-border-radius:30px;
-background:#ffd93d;
-color:#333;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-button:hover{transform:scale(1.08);background:#fff176}
-.quote{
-margin-top:20px;
-font-size:1.2rem;
-background:rgba(255,255,255,.2);
-display:inline-block;
-padding:12px 20px;
-border-radius:30px;
-}
-.container{width:90%;margin:auto;padding:50px 0}
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
-.card{
-padding:22px;
-border-radius:18px;
-color:#fff;
-box-shadow:0 10px 20px rgba(0,0,0,.15);
-transition:.4s;
-}
-.card:hover{transform:translateY(-10px) rotate(1deg)}
-.card:nth-child(1){background:#ff6b6b}
-.card:nth-child(2){background:#4ecdc4}
-.card:nth-child(3){background:#ffa502}
-.card:nth-child(4){background:#6c5ce7}
-.card:nth-child(5){background:#00b894}
-.card:nth-child(6){background:#e84393}
-.card:nth-child(7){background:#0984e3}
-.card:nth-child(8){background:#fd9644}
-.timeline{
-margin-top:40px;
-border-left:6px solid #ff4757;
-padding-left:25px;
-}
-.step{
-background:#fff;
-margin:18px 0;
-padding:16px;
-border-radius:12px;
-box-shadow:0 5px 12px rgba(0,0,0,.1);
-}
-.progress{
-height:18px;
-background:#ddd;
-border-radius:20px;
-overflow:hidden;
-margin-top:10px;
-}
-.bar{
-height:100%;
-width:0;
-background:linear-gradient(90deg,#00c6ff,#0072ff,#00e676);
-transition:2s;
-}
-footer{
-margin-top:40px;
-padding:30px;
-text-align:center;
-background:#2d3436;
-color:#fff;
-}
-@media(max-width:700px){
-h1{font-size:2.2rem}
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5fbff;color:#234;line-height:1.6}
+header{background:linear-gradient(135deg,#bde8ff,#d9f8e8);padding:50px 20px;text-align:center}
+header h1{font-size:2.5rem;color:#0a4d68}
+header p{max-width:800px;margin:15px auto}
+.btn{padding:12px 22px;border:none;border-radius:25px;background:#0a7ea4;color:#fff;cursor:pointer}
+.quote{margin-top:20px;font-style:italic;color:#444}
+section{padding:40px 8%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;border-radius:15px;padding:20px;box-shadow:0 8px 18px rgba(0,0,0,.08);transition:.3s}
+.card:hover{transform:translateY(-8px)}
+.card h3{color:#0a7ea4;margin-bottom:10px}
+.progress{width:100%;height:18px;background:#dfeff5;border-radius:10px;overflow:hidden}
+.bar{height:100%;width:0;background:#63c5a5;transition:2s}
+.timeline{border-left:4px solid #79c9ff;padding-left:20px}
+.step{margin:18px 0;padding:15px;background:#fff;border-radius:10px}
+footer{text-align:center;background:#d9f8e8;padding:20px}
+@media(max-width:700px){header h1{font-size:2rem}}
 </style>
 </head>
 <body>
-
 <header>
-<h1>🚀 DevOps Tech Roadmap</h1>
-<p>Learn • Build • Automate • Deploy • Scale • Monitor</p>
-<button onclick="quote()">✨ Motivation</button>
-<div class="quote" id="q"></div>
+<h1>🚀 DevOps Technology Roadmap</h1>
+<p>Master DevOps step by step with the right learning path, hands-on practice, and continuous improvement.</p>
+<button class="btn" onclick="nextQuote()">Inspire Me</button>
+<div class="quote" id="quote"></div>
 </header>
 
-<div class="container">
-<h2 style="text-align:center;color:#4b0082;margin-bottom:25px;">🌈 DevOps Skills</h2>
-
-<div class="cards">
-<div class="card"><h3>🐧 Linux</h3><p>Master commands, shell scripting and permissions.</p><div class="progress"><div class="bar" data="95%"></div></div></div>
-<div class="card"><h3>🌐 Git & GitHub</h3><p>Version control, branching and collaboration.</p><div class="progress"><div class="bar" data="90%"></div></div></div>
-<div class="card"><h3>⚙️ Jenkins</h3><p>Create automated CI/CD pipelines.</p><div class="progress"><div class="bar" data="82%"></div></div></div>
-<div class="card"><h3>🐳 Docker</h3><p>Containerize applications efficiently.</p><div class="progress"><div class="bar" data="85%"></div></div></div>
-<div class="card"><h3>☸ Kubernetes</h3><p>Deploy and manage container clusters.</p><div class="progress"><div class="bar" data="78%"></div></div></div>
-<div class="card"><h3>☁ AWS</h3><p>EC2, IAM, VPC, S3, ELB and Auto Scaling.</p><div class="progress"><div class="bar" data="88%"></div></div></div>
-<div class="card"><h3>🏗 Terraform</h3><p>Infrastructure as Code automation.</p><div class="progress"><div class="bar" data="70%"></div></div></div>
-<div class="card"><h3>📊 Monitoring</h3><p>Prometheus, Grafana and logging tools.</p><div class="progress"><div class="bar" data="75%"></div></div></div>
-</div>
-
-<h2 style="margin:45px 0 15px;text-align:center;color:#d63031;">📍 Learning Roadmap</h2>
+<section>
+<h2>Learning Roadmap</h2><br>
 <div class="timeline">
-<div class="step">1️⃣ Linux Fundamentals</div>
-<div class="step">2️⃣ Networking Basics</div>
-<div class="step">3️⃣ Git & GitHub</div>
-<div class="step">4️⃣ Maven / Gradle</div>
-<div class="step">5️⃣ Jenkins CI/CD</div>
-<div class="step">6️⃣ Docker</div>
-<div class="step">7️⃣ Kubernetes</div>
-<div class="step">8️⃣ AWS Cloud</div>
-<div class="step">9️⃣ Terraform</div>
-<div class="step">🔟 Monitoring & Logging</div>
+<div class="step"><b>1. Linux</b> – Commands, permissions, shell scripting.</div>
+<div class="step"><b>2. Networking</b> – DNS, HTTP, HTTPS, SSH, Load Balancers.</div>
+<div class="step"><b>3. Git & GitHub</b> – Branching, merging, pull requests.</div>
+<div class="step"><b>4. Maven / Gradle</b> – Build automation.</div>
+<div class="step"><b>5. Jenkins</b> – CI/CD pipelines.</div>
+<div class="step"><b>6. Docker</b> – Containers & images.</div>
+<div class="step"><b>7. Kubernetes</b> – Pods, Deployments, Services.</div>
+<div class="step"><b>8. AWS</b> – EC2, VPC, IAM, S3, ELB, ASG.</div>
+<div class="step"><b>9. Terraform</b> – Infrastructure as Code.</div>
+<div class="step"><b>10. Monitoring</b> – Prometheus & Grafana.</div>
 </div>
+</section>
 
+<section>
+<h2>Skill Progress</h2><br>
+<div class="grid">
+<div class="card"><h3>Linux</h3><div class="progress"><div class="bar" data-width="95%"></div></div></div>
+<div class="card"><h3>Git</h3><div class="progress"><div class="bar" data-width="90%"></div></div></div>
+<div class="card"><h3>Jenkins</h3><div class="progress"><div class="bar" data-width="80%"></div></div></div>
+<div class="card"><h3>Docker</h3><div class="progress"><div class="bar" data-width="75%"></div></div></div>
+<div class="card"><h3>Kubernetes</h3><div class="progress"><div class="bar" data-width="70%"></div></div></div>
+<div class="card"><h3>AWS</h3><div class="progress"><div class="bar" data-width="85%"></div></div></div>
+<div class="card"><h3>Terraform</h3><div class="progress"><div class="bar" data-width="60%"></div></div></div>
+<div class="card"><h3>Monitoring</h3><div class="progress"><div class="bar" data-width="65%"></div></div></div>
 </div>
+</section>
+
+<section>
+<h2>Daily DevOps Habits</h2><br>
+<div class="grid">
+<div class="card"><h3>Practice</h3><p>Spend at least one hour on hands-on labs every day.</p></div>
+<div class="card"><h3>Build</h3><p>Create CI/CD pipelines and deploy sample applications.</p></div>
+<div class="card"><h3>Read</h3><p>Stay updated with cloud services and automation tools.</p></div>
+<div class="card"><h3>Share</h3><p>Publish projects and technical posts on GitHub and LinkedIn.</p></div>
+</div>
+</section>
 
 <footer>
-<h2>💡 "Automation is not replacing people, it empowers people."</h2>
-<p>Keep Learning • Keep Practicing • Keep Deploying 🚀</p>
+<h3>🌟 "Success in DevOps is built one automation at a time."</h3>
+<p>Keep Learning • Keep Building • Keep Automating</p>
 </footer>
 
 <script>
 const quotes=[
-"Success comes from consistent practice.",
-"Every deployment teaches something new.",
-"Dream Big. Build Bigger.",
-"Cloud is the future. Learn it today.",
-"Your GitHub speaks before your resume.",
-"Small automations create big impact."
+"Dream big. Start small. Automate everything.",
+"Consistency beats intensity.",
+"Every expert was once a beginner.",
+"Practice makes DevOps engineers confident.",
+"Your GitHub is your portfolio.",
+"Deploy with confidence, learn from failures.",
+"Cloud skills create limitless opportunities.",
+"Automate today, innovate tomorrow."
 ];
 let i=0;
-function quote(){
-document.getElementById("q").innerHTML=quotes[i];
-i=(i+1)%quotes.length;
+function nextQuote(){
+ document.getElementById("quote").textContent=quotes[i];
+ i=(i+1)%quotes.length;
 }
-quote();
-setInterval(quote,3500);
-document.querySelectorAll(".bar").forEach((e,n)=>{
-setTimeout(()=>e.style.width=e.getAttribute("data"),300+n*150);
+nextQuote();
+setInterval(nextQuote,4000);
+
+document.querySelectorAll(".bar").forEach((b,idx)=>{
+ setTimeout(()=>{b.style.width=b.dataset.width;},300+idx*150);
+});
+
+document.querySelectorAll(".card").forEach(c=>{
+ c.addEventListener("mouseenter",()=>c.style.background="#f2fdff");
+ c.addEventListener("mouseleave",()=>c.style.background="#fff");
 });
 </script>
-
 </body>
 </html>
